@@ -1,0 +1,186 @@
+<html lang="en">
+<head>
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+<meta http-equiv="Pragma" content="no-cache" />
+<meta http-equiv="Expires" content="0"/>
+<meta name="robots" content="noindex">
+<style type="text/css">
+
+body {
+   margin: 0;
+   padding: 0;
+   overflow-y: hidden;
+}
+
+#player {
+   width: 100%;
+   height: 100%;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+/* Anti AdBlock By igniel.com */
+.ignielAdBlock {
+  background-color: rgba(0,0,0,.75);
+  position: fixed;
+  z-index: 999;
+}
+.ignielAdBlock svg {
+  height: 8rem;
+  width: 8rem;
+}
+.ignielAdBlock path {
+  fill: #b82929;
+}
+.adblock-outer {
+  margin: auto;
+  max-height: 90vh;
+  max-width: 640px;
+  padding: 2rem;
+  position: absolute;
+}
+.adblock-inner {
+  background-color: #f4f4f4;
+  border-radius: 15px;
+  overflow: auto;
+  padding: 2rem;
+}
+.ignielAdBlock, .adblock-outer {
+  bottom: 0;
+  left: 0;
+  right: 0;
+  top: 0;
+}
+.adblock-outer, .adblock-inner {
+  align-items: center;
+  display: flex;
+  display: inline-flex;
+}
+.adblock-wrapper {
+  margin-left: 1rem;
+}
+.adblock-title {
+  font-size: 2rem;
+  font-weight: bolder;
+  line-height: 2.5rem;
+}
+.adblock-text {
+  margin-top: 1rem;
+}
+@media screen and (max-width: 640px) {
+  .adblock-outer {
+    max-width: 90vw;
+  }
+  .ignielAdBlock svg {
+    height: 5rem;
+    width: 5rem;
+  }
+  .adblock-title {
+    font-size: 1.75rem;
+    line-height: 2rem;
+  }
+}
+@media screen and (max-width: 480px) {
+  .adblock-inner {
+    flex-direction: column;
+  }
+  .adblock-wrapper {
+    margin-left: 0;
+    margin-top: 1rem;
+    text-align: center;
+  }
+}
+</style>
+<script type="text/javascript" charset="utf-8" async="" src="//ssl.p.jwpcdn.com/player/v/8.34.1/jwpsrv.js"></script>
+<script src="//ssl.p.jwpcdn.com/player/v/8.34.1/jwplayer.js"></script>
+<script> jwplayer.key = 'XSuP4qMl+9tK17QNb+4+th2Pm9AWgMO/cYH8CI0HGGr7bdjo';
+</script>
+<script type="text/javascript">
+function getParameterByName(name) {
+	name = name.replace(/[\[]/, "\[").replace(/[\]]/, "\]");
+	var regex = new RegExp("[\?&]" + name + "=([^&#]*)"),
+	results = regex.exec(location.search);
+	return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
+}
+
+var getURL = getParameterByName('url');
+var getIMG = getParameterByName('img');
+var getKEY  = getParameterByName('k1');
+var getKEY2  = getParameterByName('k2');
+if (getURL == "#") {alert('Go back to the previous page');}
+</script>
+<script>
+var play = getParameterByName('play');
+
+if (play == "1") {
+play = "true"
+}else{
+	play = "false"
+	}
+</script>
+</head>
+
+</div>
+<div id="player"></div>
+
+
+<script type="text/javascript">
+var playerInstance=jwplayer("player");
+
+playerInstance.setup({
+
+    playlist: [{
+    
+    "image": "",
+      "sources": [
+        {
+          "default": true,
+          "type": "dash",
+          "file": atob(getURL),
+          "drm": {
+            "clearkey": {"keyId": atob(getKEY), "key": atob(getKEY2)}
+          },
+          "label": "0"
+        }
+      ]
+    }],
+    logo: { file: "", },
+    width: "100%",
+    pipIcon: "enabled",
+    height: "100%",
+    aspectratio: "16:9",
+    autostart: true,
+    mute: false,
+    cast: [],
+    sharing: {
+            link: ""
+},
+});
+</script>
+
+<script> //<![CDATA[
+/* Anti AdBlock By igniel.com */
+(function ignielAdBlock() {
+  let adPub = 'xxxx',
+  adTitle = 'Turn off AdBlock',
+  adText = 'We see you are using Adblocker. Our site relies on advertising revenue to provide you with free content. Please consider disabling your Adblocker when visiting our site.',
+  ad = document.createElement('script');
+  ad.src = 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-' + adPub;
+  ad.async = true;
+  ad.setAttribute('crossorigin', 'anonymous');
+  ad.onerror = function() {
+    let a = document.createElement('div');
+    a.className = 'ignielAdBlock';
+    a.innerHTML = '<div class=\"adblock-outer\"><div class=\"adblock-inner\"><div class=\"adblock-icon\"><svg viewBox=\"0 0 24 24\"><path d=\"M3 10.5V15.5C3 20.19 6.81 24 11.5 24S20 20.19 20 15.5V7C20 5.62 18.88 4.5 17.5 4.5C17.33 4.5 17.16 4.5 17 4.55V4C17 2.62 15.88 1.5 14.5 1.5C14.27 1.5 14.04 1.53 13.83 1.59C13.46 .66 12.56 0 11.5 0C10.27 0 9.25 .89 9.04 2.06C8.87 2 8.69 2 8.5 2C7.12 2 6 3.12 6 4.5V8.05C5.84 8 5.67 8 5.5 8C4.12 8 3 9.12 3 10.5M5 10.5C5 10.22 5.22 10 5.5 10S6 10.22 6 10.5V15C7.66 15 9 16.34 9 18H11C11 15.95 9.77 14.19 8 13.42V4.5C8 4.22 8.22 4 8.5 4S9 4.22 9 4.5V11H11V2.5C11 2.22 11.22 2 11.5 2S12 2.22 12 2.5V11H14V4C14 3.72 14.22 3.5 14.5 3.5S15 3.72 15 4V12H17V7C17 6.72 17.22 6.5 17.5 6.5S18 6.72 18 7V15.5C18 19.09 15.09 22 11.5 22S5 19.09 5 15.5V10.5Z\"></path></svg></div><div class=\"adblock-wrapper\"><div class=\"adblock-title\">' + adTitle + '</div><div class=\"adblock-text\">' + adText + '</div></div></div></div>';
+    document.body.append(a);
+    document.body.style.overflow = 'hidden';
+  };
+  document.head.appendChild(ad);
+})();
+//]]> </script>
+
+</body>
+</html>
